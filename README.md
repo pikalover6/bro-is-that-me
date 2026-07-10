@@ -1,4 +1,4 @@
-<p align="center"><img src="header.png" width="180" alt=""></p>
+<p align="center"><img src="header.png" width="300" alt=""></p>
 
 # bro-is-that-me
 
@@ -23,17 +23,14 @@ you from your own photo library, reads your device, and composites it all with a
 image model. You answer a few prompts and it opens the result next to your other
 pictures.
 
-It is a party trick. Everything it does is gated behind a typed `I CONSENT`.
-
 ## How it works
 
 1. **Pick a backend** — the agent runs on `codex` (OpenAI Codex CLI) or
    `claude` (Claude Code), each via an existing login or an API key you paste.
 2. **Pick an image generator** — codex's built-in image tool, or the OpenAI
-   `gpt-image-1` `images/edits` endpoint (`input_fidelity=high` for face
-   fidelity). Anthropic has no image model, so those two are the options.
-3. **Consent gate** — a bold warning lists exactly what will be accessed and what
-   leaves your machine; you must type `I CONSENT`.
+   `gpt-image-2` `images/edits` endpoint (`input_fidelity=high` for face
+   fidelity).
+3. **Consent gate** — you must type `I CONSENT`.
 4. **A sandboxed agent** figures out your OS and does the work: installs
    Playwright, reads geolocation from headless Chrome (falls back to IP),
    reverse-geocodes it via OpenStreetMap, web-searches real photos of the place,
