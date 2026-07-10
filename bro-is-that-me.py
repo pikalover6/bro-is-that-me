@@ -224,13 +224,13 @@ image is the person; the rest are the location:
 `--image` accepts multiple files. If your codex build rejects multiple, attach
 only user.png and describe the location precisely from the reference photos."""
 
-IMGGEN_OPENAI = r"""Generate with the OpenAI images edit API (gpt-image-1). The key is already in
+IMGGEN_OPENAI = r"""Generate with the OpenAI images edit API (gpt-image-2). The key is already in
 the OPENAI_API_KEY environment variable. ATTACH the real photos as files (do not
 describe them); the first is the person, the rest are the location:
 
     curl -s https://api.openai.com/v1/images/edits \
       -H "Authorization: Bearer $OPENAI_API_KEY" \
-      -F model="gpt-image-1" -F input_fidelity="high" -F size="1536x1024" \
+      -F model="gpt-image-2" -F input_fidelity="high" -F size="1536x1024" \
       -F "image[]=@user.png" -F "image[]=@refs/loc1.png" -F "image[]=@refs/loc2.png" \
       -F prompt="Produce ONE photorealistic still frame that looks like
         SECURITY-CAMERA / CCTV footage, from the attached images. The FIRST image
@@ -448,7 +448,7 @@ def main():
     # 2) image generator
     say(f"{B}2) Image generator{R}")
     say(f"   {DIM}1) codex       (codex built-in image tool){R}")
-    say(f"   {DIM}2) openai api  (gpt-image-1 images/edits){R}")
+    say(f"   {DIM}2) openai api  (gpt-image-2 images/edits){R}")
     say(f"   {DIM}   (Anthropic has no image model, so 'openai api' is the only non-codex option){R}")
     imgchoice = ask("   choose [1-2]: ")
     imggen = {"1": "codex", "2": "openai_api"}.get(imgchoice)
